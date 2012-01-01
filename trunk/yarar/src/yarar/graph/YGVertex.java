@@ -13,20 +13,6 @@ import java.awt.geom.Ellipse2D;
  */
 public class YGVertex extends YGAbstractElement {
 
-    /** The supported Shape types for vertex visualisation */
-    protected static enum VShape {
-	/** display shape as a circle */
-	CIRCLE,
-	/** display shape as an ellipse */
-	ELLIPSE,
-	/** display shape as a triangle */
-	TRIANGLE,
-	/** display shape as a rectangle */
-	RECTANGLE,
-	/** default shape (currently set to ELLIPSE) */
-	DEFAULT
-    }
-
     /** The {@link Shape} used for visualisation purposes */
     protected Shape displayShape;
 
@@ -39,7 +25,7 @@ public class YGVertex extends YGAbstractElement {
 	super(internalID);
 	setDisplayColor(Color.YELLOW);
 	setDisplayStroke(YGStrokeType.DASHED);
-	setDisplayShape(VShape.ELLIPSE);
+	setDisplayShape(YGVShape.ELLIPSE);
     }
 
     /**
@@ -56,7 +42,7 @@ public class YGVertex extends YGAbstractElement {
      */
     public final Shape getDisplayShape() {
 	if (displayShape == null) {
-	    setDisplayShape(VShape.DEFAULT);// goes to default
+	    setDisplayShape(YGVShape.DEFAULT);// goes to default
 	}
 	return displayShape;
     }
@@ -66,7 +52,7 @@ public class YGVertex extends YGAbstractElement {
      * 
      * @param shapeType Use one of <code>YGVertex.SHAPE_xxxx</code> types.
      */
-    public final void setDisplayShape(final VShape shapeType) {
+    public final void setDisplayShape(final YGVShape shapeType) {
 	switch (shapeType) {
 	    case RECTANGLE:
 		displayShape = new Rectangle(-30, -10, 60, 20);

@@ -25,7 +25,7 @@ public class Kysely {
     /** {@link ResultSet} returned by the last execution of Kysely's SQL. */
     private ResultSet result;
     /** The {@link ResultSetMetaData} object associated with the last <code>result</code>. */
-    private ResultSetMetaData rsmd;
+    private ResultSetMetaData resultSetMetaData;
     /** The column count of the last <code>result</code>. */
     private int columnCount = -1;
 
@@ -251,8 +251,8 @@ public class Kysely {
 	this.result = result;
 	columnCount = -1;
 	try {
-	    rsmd = result.getMetaData();
-	    columnCount = rsmd.getColumnCount();
+	    resultSetMetaData = result.getMetaData();
+	    columnCount = resultSetMetaData.getColumnCount();
 	} catch (final SQLException e) {
 	    Logger.print(e);
 	}

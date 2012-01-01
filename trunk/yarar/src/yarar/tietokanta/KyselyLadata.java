@@ -23,7 +23,7 @@ public final class KyselyLadata {
     /**
      * Parser of configuration with SQLs.
      */
-    private final ConfigParser cf;
+    private final ConfigParser configParser;
 
     /**
      * {@link Enumeration} containing all keys from the relevant configuration file.
@@ -46,8 +46,8 @@ public final class KyselyLadata {
 	KyselyLadata.selfInstance = this;
 
 	// loading properties from the the relevant properties file.
-	cf = new ConfigParser("kyselyladata.properties");
-	keys = cf.getAllKeys();
+	configParser = new ConfigParser("kyselyladata.properties");
+	keys = configParser.getAllKeys();
 	loadSQLs();
     }
 
@@ -91,7 +91,7 @@ public final class KyselyLadata {
 
 	// start iterating over all keys
 	for (final Object key : keys) {
-	    final String fileName = cf.getValue((String) key);
+	    final String fileName = configParser.getValue((String) key);
 	    final String sql = readFile(fileName, loader);
 	    sqls.put((String) key, new Kysely(sql));
 	}

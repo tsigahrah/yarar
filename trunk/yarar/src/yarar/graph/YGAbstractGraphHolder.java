@@ -8,7 +8,7 @@ package yarar.graph;
 public abstract class YGAbstractGraphHolder {
 
     /** Preferred layout for graph visualisation. */
-    protected YGDisplay.Layouts preferredLayout;
+    protected YGVisualisationLayouts preferredLayout;
 
     /** The internal <code>YGGraph</code> object. */
     protected YGGraph ygg;
@@ -23,8 +23,8 @@ public abstract class YGAbstractGraphHolder {
     }
 
     /**
-     * Calls {@link YGDisplay#display(YGGraph, int, int, yarar.graph.YGDisplay.Layouts)} to display
-     * the graph with predefined width and height, based on vertices count.
+     * Calls {@link YGDisplay#display(YGGraph, int, int, yarar.graph.YGVisualisationLayouts)} to
+     * display the graph with predefined width and height, based on vertices count.
      */
     public void displaySelf() {
 	final int[] wh = getDisplayWidthAndHeight(ygg);
@@ -38,8 +38,8 @@ public abstract class YGAbstractGraphHolder {
     }
 
     /**
-     * Calls {@link YGDisplay#display(YGGraph, int, int, yarar.graph.YGDisplay.Layouts)} to display
-     * the graph with predefined width and height, based on vertices count.
+     * Calls {@link YGDisplay#display(YGGraph, int, int, yarar.graph.YGVisualisationLayouts)} to
+     * display the graph with predefined width and height, based on vertices count.
      * 
      * @param g The graph to be displayed.
      */
@@ -90,6 +90,6 @@ public abstract class YGAbstractGraphHolder {
      * 
      * @return The preferred layout.
      */
-    protected abstract YGDisplay.Layouts getPreferredLayout();
+    protected abstract YGVisualisationLayouts getPreferredLayout();
 
 }

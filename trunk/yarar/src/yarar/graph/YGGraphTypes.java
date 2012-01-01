@@ -4,7 +4,6 @@ package yarar.graph;
  * Enumeration of the supported graph types. Used in {@link YGGraph} constructor.
  * 
  * @author Dimo Vanchev
- * 
  */
 public enum YGGraphTypes {
 
