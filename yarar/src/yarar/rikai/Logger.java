@@ -1,7 +1,7 @@
 package yarar.rikai;
 
 /**
- * This class provides logging facilities.
+ * The class provides logging facilities.
  * 
  * @author Dimo Vanchev
  */
