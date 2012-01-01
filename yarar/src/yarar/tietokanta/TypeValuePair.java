@@ -10,19 +10,19 @@ package yarar.tietokanta;
 public final class TypeValuePair {
 
     /** The type */
-    private final Feldtyp t;
+    private final Feldtyp type;
     /** The value */
-    private final Object v;
+    private final Object value;
 
     /**
      * Creates a new TypeValuePair instance.
      * 
-     * @param t The type
-     * @param v The value
+     * @param type The type
+     * @param value The value
      */
-    public TypeValuePair(final Feldtyp t, final Object v) {
-	this.t = t;
-	this.v = v;
+    public TypeValuePair(final Feldtyp type, final Object value) {
+	this.type = type;
+	this.value = value;
     }
 
     /**
@@ -31,7 +31,7 @@ public final class TypeValuePair {
      * @return The type.
      */
     public Feldtyp getType() {
-	return t;
+	return type;
     }
 
     /**
@@ -40,6 +40,6 @@ public final class TypeValuePair {
      * @return The value.
      */
     public Object getValue() {
-	return v;
+	return value;
     }
 }

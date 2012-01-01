@@ -7,14 +7,6 @@ package yarar.rikai;
  */
 public final class Logger {
 
-    /** The logging level types */
-    protected static enum LoggingLevel {
-	/** Silent mode - no logging, no console output */
-	NONE,
-	/** Console mode - no logging, only console output. */
-	CONSOLE
-    }
-
     /** The single instance of this class. */
     private static Logger selfInstance;
 
@@ -22,8 +14,8 @@ public final class Logger {
     private final ConfigParser cf;
     /** Logging level, as defined in the application-level settings. */
     private final String configLogging;
-    /** The logging level, see {@link LoggingLevel} enum. */
-    private final LoggingLevel loggingLevel;
+    /** The logging level, see {@link RikaiLoggingLevel} enum. */
+    private final RikaiLoggingLevel rikaiLoggingLevel;
 
     /**
      * Singleton private constructor.
@@ -36,9 +28,9 @@ public final class Logger {
 
 	// determine logging level
 	if (configLogging.equals("console")) {
-	    loggingLevel = LoggingLevel.CONSOLE;
+	    rikaiLoggingLevel = RikaiLoggingLevel.CONSOLE;
 	} else {
-	    loggingLevel = LoggingLevel.NONE;
+	    rikaiLoggingLevel = RikaiLoggingLevel.NONE;
 	}
     }
 
@@ -61,7 +53,7 @@ public final class Logger {
      * @param str The String
      */
     public static void print(final String str) {
-	switch (Logger.selfInstance.loggingLevel) {
+	switch (Logger.selfInstance.rikaiLoggingLevel) {
 	    case CONSOLE:
 		System.out.println(str);
 		break;
@@ -78,7 +70,7 @@ public final class Logger {
      * @param e The Exception
      */
     public static void print(final Exception e) {
-	switch (Logger.selfInstance.loggingLevel) {
+	switch (Logger.selfInstance.rikaiLoggingLevel) {
 	    case CONSOLE:
 		e.printStackTrace();
 		break;
@@ -105,7 +97,7 @@ public final class Logger {
 	    deep--;
 	}
 	d += str;
-	switch (Logger.selfInstance.loggingLevel) {
+	switch (Logger.selfInstance.rikaiLoggingLevel) {
 	    case CONSOLE:
 		System.out.println(d);
 		break;

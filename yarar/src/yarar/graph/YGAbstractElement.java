@@ -12,35 +12,6 @@ import java.awt.Stroke;
  */
 public abstract class YGAbstractElement {
 
-    /** Graph element types - i.e. vertex or edge. */
-    protected static enum YGElementType {
-	/** Vertex */
-	V,
-	/** Edge */
-	E
-    }
-
-    /** Graph element types - i.e. vertex or edge. */
-    protected static enum YGStrokeType {
-	/** Solid Stroke type for <code>displayStroke</code>. */
-	SOLID,
-	/** Dashed Stroke type for <code>displayStroke</code>. */
-	DASHED
-    }
-
-    /** Used by {@link #debugLevel}. */
-    protected static enum YGDebugLevel {
-	/** outputs only {@link #internalID} */
-	MIN,
-	/** outputs {@link #internalID} and class name */
-	MORE,
-	/**
-	 * Outputs the {@link YGElementType}, the {@link #internalID} and
-	 * <code>super.toString()</code> value.
-	 */
-	FULL
-    }
-
     /** A <code>Color</code> used for visualisation needs. */
     protected Color displayColor;
     /** A <code>Stroke</code> used for visualisation needs. */

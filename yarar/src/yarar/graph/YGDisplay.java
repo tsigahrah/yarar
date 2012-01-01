@@ -66,28 +66,10 @@ public class YGDisplay {
     /** The rings used in background when RadialTreeLayout needs to be displayed. */
     private VisualizationServer.Paintable rings;
 
-    /** graph visualisation layouts */
-    public static enum Layouts {
-	/**
-	 * Implements the Fruchterman-Reingold force-directed algorithm for node layout. Behaviour
-	 * is determined by the following settable parameters:
-	 * <ul>
-	 * <li/>attraction multiplier: how much edges try to keep their vertices together
-	 * <li/>repulsion multiplier: how much vertices try to push each other apart
-	 * <li/>maximum iterations: how many iterations this algorithm will use before stopping
-	 * </ul>
-	 * Each of the first two defaults to 0.75; the maximum number of iterations defaults to 700.
-	 */
-	FR,
-	/** A radial layout for Tree or Forest graphs. */
-	RADIAL_TREE
-
-	// more layouts under: edu.uci.ics.jung.algorithms.layout.*
-    }
-
     /**
      * This constructor is used internally upon calling the static
-     * {@link #display(YGGraph, int, int, YGDisplay.Layouts)} method and has solely internal use.
+     * {@link #display(YGGraph, int, int, YGVisualisationLayouts)} method and has solely internal
+     * use.
      * 
      * @param graph The graph object.
      */
@@ -104,7 +86,7 @@ public class YGDisplay {
      * @param l The desired layout type.
      */
     public static void display(final YGGraph g, final int width, final int height,
-	    final YGDisplay.Layouts l) {
+	    final YGVisualisationLayouts l) {
 	Layout<YGVertex, YGEdge> layout;
 	final YGDisplay ygd = new YGDisplay(g);
 
@@ -125,7 +107,7 @@ public class YGDisplay {
 		break;
 	}
 
-	if (l != Layouts.RADIAL_TREE) {
+	if (l != YGVisualisationLayouts.RADIAL_TREE) {
 	    layout.setSize(new Dimension(width, height));
 	}
 
@@ -152,7 +134,7 @@ public class YGDisplay {
 	final DefaultModalGraphMouse graphMouse = new DefaultModalGraphMouse();
 	vv.setGraphMouse(graphMouse);
 
-	if (l == Layouts.RADIAL_TREE) {
+	if (l == YGVisualisationLayouts.RADIAL_TREE) {
 	    YGDisplay.addControls(ygd, content);
 	}
 
@@ -340,7 +322,7 @@ public class YGDisplay {
 	// ygg.addEdge(new YGEdge("poiasnenie"), g, e, EdgeType.DIRECTED);
 	// ygg.addEdge(new YGEdge("vrashtane"), e, g, EdgeType.DIRECTED);
 
-	YGDisplay.display(ygg, 400, 400, Layouts.FR);
+	YGDisplay.display(ygg, 400, 400, YGVisualisationLayouts.FR);
     }
 
     /**
