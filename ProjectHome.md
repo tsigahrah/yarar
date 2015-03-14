@@ -1,0 +1,1 @@
+Utility package used in Rikai's projects. Java 7.
